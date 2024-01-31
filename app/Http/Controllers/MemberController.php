@@ -13,7 +13,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        return view("member.index");
+        $members['member'] = Member::all();
+        return view("member.index")->with($members);
     }
 
     /**
@@ -30,7 +31,7 @@ class MemberController extends Controller
     public function store(StoreMemberRequest $request)
     {
         $a = $request->all();
-        $a["code_member"] = bin2hex(rand(1,10));
+        $a["code_member"] = strtoupper(bin2hex(random_bytes(5)));
         $input = Member::create($a);
         return redirect()->route("member.index")->with("success","Data Member Berhasil Ditambahkan");
     }
