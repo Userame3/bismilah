@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Menu;
-use App\Http\Requests\StoreMenuRequest;
-use App\Http\Requests\UpdateMenuRequest;
+use App\Models\kategori;
+use App\Http\Requests\StorekategoriRequest;
+use App\Http\Requests\UpdatekategoriRequest;
 
-class MenuController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $menu['menu'] = Menu::all();
-        return view("menu.index")->with($menu);
+        //
     }
 
     /**
@@ -28,17 +27,15 @@ class MenuController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreMenuRequest $request)
+    public function store(StorekategoriRequest $request)
     {
-         $menu = $request->all();
-         $input = Menu::create($menu);
-         return redirect()->route("menu.index")->with("Success","Data Menu Berhasil Ditambahkan");
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Menu $menu)
+    public function show(kategori $kategori)
     {
         //
     }
@@ -46,7 +43,7 @@ class MenuController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Menu $menu)
+    public function edit(kategori $kategori)
     {
         //
     }
@@ -54,7 +51,7 @@ class MenuController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMenuRequest $request, Menu $menu)
+    public function update(UpdatekategoriRequest $request, kategori $kategori)
     {
         //
     }
@@ -62,7 +59,7 @@ class MenuController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Menu $menu)
+    public function destroy(kategori $kategori)
     {
         //
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('member', MemberController::class);
+Route::resource('menu', MenuController::class);
 
-Route::get('/form',function(){
-    return view('member.form');
+route::get('',function(){
+    return view('home');
 });
