@@ -3,7 +3,7 @@
 
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table id="datatable" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <table id="data-menu" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
 
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -55,25 +55,3 @@
         </tbody>
     </table>
 </div>
-
-<script>
-    let data = <?= $menu ?>;
-    $(document).ready(() => {
-        $('#datatable').DataTable({
-            data: data,
-            columns: [{
-                    data: 'id',
-                    title: "No"
-                },
-                {
-                    data: 'nama',
-                    title: "Nama"
-                },
-                {
-                    data: 'action',
-                    title: "AN ahhhh"
-                }
-            ]
-        });
-    })
-</script>

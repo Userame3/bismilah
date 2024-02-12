@@ -3,16 +3,16 @@
 @extends('templates.layout')
 
 <body>
-    <div class="flex h-screen w-full bg-gray-800 " x-data="{ openMenu: 0 }">
+    <div class="flex w-full bg-gray-800 " x-data="{ openMenu: 0 }">
         <!--Start SideBar-->
         @include('templates.sidebar')
 
         <!-- End Sidebar -->
-        <div class="flex flex-col flex-1 w-full overflow-y-auto">
+        <div class="flex flex-col flex-1 w-full">
             <!--Start Topbar -->
             <!--End Topbar -->
-            <main class="relative z-0 flex-1 pb-8 px-6 bg-white">
-                <div class="grid pb-10  mt-4 ">
+            <main class="relative z-0 flex-1 pb-0 px-6 bg-white">
+                <div class="grid  mt-4 ">
                     <!-- Start Content-->
                     <div class="mb-2">
                         <p class="text-lg font-semibold text-gray-400">Invoices</p>
@@ -43,6 +43,18 @@
         </div>
     </div>
     @include('member.form')
+
+    <script>
+        $(document).ready(function() {
+            $('#data-member').DataTable();
+        });
+        var $j = jQuery.noConflict();
+
+        $j(document).ready(function() {
+            $j('#data-member').DataTable();
+        });
+    </script>
+
 </body>
 
 </html>
