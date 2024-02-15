@@ -45,13 +45,42 @@
     @include('member.form')
 
     <script>
-        $(document).ready(function() {
-            $('#data-member').DataTable();
-        });
         var $j = jQuery.noConflict();
 
         $j(document).ready(function() {
             $j('#data-member').DataTable();
+        });
+
+        $j(document).ready(function() {
+            $j('#ModalMember').modal('show');
+            $j('#ModalMember').on('shown.bs.modal', function(e) {
+                console.log('modal member');
+                const btn = $j(e.relatedTarget);
+                const id = btn.data('id');
+                const nama = btn.data('nama');
+                const harga = btn.data('harga');
+                const alamat = btn.data('alamat');
+                const mode = btn.data('mode');
+                const modal = $j(this);
+                console.log(mode);
+                if (mode === 'edit') {
+                    modal.find('.modal-title').text("Edit Data Member");
+                    modal.find('.modal-body #nama').val(nama);
+                    modal.find('.modal-body #harga').val(harga);
+                    modal.find('.modal-body #alamat').val(alamat);
+                    modal.find('.modal-footer #btn-submit').text('Update');
+                    modal.find('.modal-body form').attr('action',
+                        '{{ url(request()->segment(1)) }}/member/' + id);
+                    modal.find('.modal-body #method').html('{{ method_field('PATCH') }}');
+                } else {
+                    modal.find('.modal-title').text("Input Data Member");
+                    modal.find('.modal-body #nama').val('');
+                    modal.find('.modal-body #harga').val('');
+                    modal.find('.modal-body #alamat').val('');
+                    modal.find('.modal-footer #btn-submit').text('Submit');
+                    modal.find('.modal-body #method').html('');
+                }
+            });
         });
     </script>
 

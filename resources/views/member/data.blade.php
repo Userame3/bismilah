@@ -39,10 +39,14 @@
                     <td class="px-6 py-4">
                         {{ $p->alamat }}
                     </td>
-                    <td class="px-6 py-4 ">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        <a href="#"
-                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                    <td class="px-6 py-4 text-lg">
+                        <button class="btn font-large text-green-500 dark:text-blue-500" data-modal-target="ModalMember"
+                            data-modal-toggle="ModalMember" title="edit" data-mode="edit"
+                            data-id="{{ $p->id }}" data-nama="{{ $p->nama }}"
+                            data-code_member="{{ $p->code_member }}" data-alamat="{{ $p->alamat }}">
+                            &nbsp;<i class="fas fa-edit"></i></button>
+                        <button class="font-large text-red-600 dark:text-blue-500" title="Delete">
+                            &nbsp;<i class="fas fa-trash-alt"></i></button>
                     </td>
                 </tr>
             @endforeach

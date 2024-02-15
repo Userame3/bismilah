@@ -57,7 +57,8 @@ class MemberController extends Controller
      */
     public function update(UpdateMemberRequest $request, Member $member)
     {
-        //
+        $member->update($request->all());
+        return redirect(request()->segmen(1).'/member')->with("success","Update Data Member Berhasil!");
     }
 
     /**
